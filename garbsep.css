@@ -1,0 +1,742 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    text-align: center;
+    padding: 30px;
+    -webkit-font-smoothing: antialiased;
+    background-image: url(/img/Arbitrum_AllWhite_Logos_Logomark_RGB.png);
+    background-size: 10%;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#spinner {
+    display: none;
+    margin-top: 15px;
+    font-size: 24px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#duelo img {
+    width: 100px;
+    height: 100px;
+}
+
+body {
+    text-align: center;
+    padding: 30px;
+    background: #7ECEFD;
+}
+
+.eightbit-btn {
+    background: #92cd41;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    padding: 14px;
+    font-family: "Press Start 2P", cursive;
+    text-decoration: none;
+    color: white;
+    box-shadow: inset -4px -4px 0px 0px #4aa52e;
+    z-index: 4;
+}
+
+.wcnct {
+    background: 0;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    padding: 9px;
+    font-family: "Press Start 2P", cursive;
+    text-decoration: none;
+    color: #2afd3d;
+    z-index: 4;
+    border: 0;
+    cursor: pointer;
+}
+
+.wallet-connected {
+    background: 0;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    padding: 9px;
+    font-family: "Press Start 2P", cursive;
+    text-decoration: none;
+    color: #2afd3d;
+    z-index: 4;
+    border: 0;
+}
+
+.eightbit-btn:hover,
+.eightbit-btn:focus {
+    background: #76c442;
+    box-shadow: inset -6px -6px 0px 0px #4aa52e;
+}
+
+.eightbit-btn:active {
+    box-shadow: inset 4px 4px 0px 0px #4aa52e;
+}
+
+.eightbit-btn:before,
+.eightbit-btn:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+}
+
+.eightbit-btn:before {
+    top: -6px;
+    left: 0;
+    border-top: 6px black solid;
+    border-bottom: 6px black solid;
+}
+
+.eightbit-btn:after {
+    left: -6px;
+    top: 0;
+    border-left: 6px black solid;
+    border-right: 6px black solid;
+}
+
+.eightbit-btn--reset {
+    background: #e76e55;
+    box-shadow: inset -4px -4px 0px 0px #8c2022;
+}
+
+.eightbit-btn--reset:hover,
+.eightbit-btn--reset:focus {
+    background: #ce372b;
+    box-shadow: inset -6px -6px 0px 0px #8c2022;
+}
+
+.eightbit-btn--reset:active {
+    box-shadow: inset 4px 4px 0px 0px #8c2022;
+}
+
+.eightbit-btn--proceed {
+    background: #f7d51d;
+    box-shadow: inset -4px -4px 0px 0px #e59400;
+}
+
+.eightbit-btn--proceed:hover,
+.eightbit-btn--proceed:focus {
+    background: #f2c409;
+    box-shadow: inset -6px -6px 0px 0px #e59400;
+}
+
+.eightbit-btn--proceed:active {
+    box-shadow: inset 4px 4px 0px 0px #e59400;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: "Maven Pro", sans-serif;
+    text-align: center;
+    background-image: url(/img/Arbitrum_AllWhite_Logos_Logomark_RGB.png);
+    background-size: 8%;
+    background-repeat: repeat;
+    background-blend-mode: soft-light;
+}
+
+h1 {
+    font-size: 2.8rem;
+    line-height: 3.4rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h1,
+h2 {
+    font-family: "Press Start 2P", cursive;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+}
+
+p {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+hr {
+    margin: 10px auto;
+    max-width: 500px;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #b5b5b5;
+    padding: 2px;
+}
+
+.pen-intro {
+    text-align: center;
+}
+
+.foldcontainer {
+    width: 100%;
+    height: 100%;
+    background: #7ECEFD;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layer,
+#city,
+#cityBack,
+#cloud2,
+#cloud1 {
+    transform: translateZ(0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat-x;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background-size: 600px;
+}
+
+#cloud1 {
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/96252/clouds2.png);
+    z-index: 0;
+    animation-duration: 70s;
+}
+
+#cloud2 {
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/96252/clouds1.png);
+    z-index: 2;
+    animation-duration: 50s;
+}
+
+#cityBack {
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/96252/skyline-back.png);
+    z-index: 2;
+    animation-name: scrollBottom;
+    animation-duration: 32s;
+}
+
+#city {
+    background-image: url(/skyline.png);
+    z-index: 3;
+    animation-name: scrollBottom;
+    animation-duration: 25s;
+}
+
+@keyframes scrollTop {
+    from {
+        background-position: 0 top;
+    }
+    to {
+        background-position: -1200px top;
+    }
+}
+
+@keyframes scrollBottom {
+    from {
+        background-position: 0 bottom;
+    }
+    to {
+        background-position: -1200px bottom;
+    }
+}
+
+#cloud1,
+#cloud2 {
+    animation-name: scrollTop;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#volumeBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+caption {
+    font-size: 12px;
+    font-family: 'Press Start 2P';
+    margin-bottom: 8px;
+}
+
+table {
+    z-index: 10;
+    position: relative;
+    text-align: left;
+    display: inline-table;
+    border-spacing: 23px 1px;
+    border-top: dotted #3cff00;
+    border-bottom: dotted #3cff00;
+    color: #3cff00;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #3cfb4c;
+    z-index: 10;
+    position: relative;
+    font-size: 15px;
+}
+
+a:visited {
+    color: #3cfb4c;
+}
+
+a:hover {
+    color: #73f77e;
+}
+
+h3 {
+    position: relative;
+    z-index: 10;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    /* top: 0; right: 0; bottom: 0; left: 0 */
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    text-align: left;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+#howToPlayBtn {
+    font-family: "Maven Pro", sans-serif;
+    position: relative;
+    z-index: 10;
+    padding: 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #3cff00;
+}
+
+#howToArbBtn {
+    font-family: "Maven Pro", sans-serif;
+    position: relative;
+    z-index: 10;
+    padding: 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #3cff00;
+}
+
+.modalb {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    /* top: 0; right: 0; bottom: 0; left: 0 */
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalb-content {
+    text-align: left;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modalb-content h2 {
+    margin-top: 0;
+}
+
+.closeb {
+    color: #aaa;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.closeb:hover {
+    color: #000;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: "e a f " "e b f " "e c f " "e d f " "e g f ";
+    gap: 0px;
+    margin: 0;
+    /* height: 100vh; */
+    grid-template-rows: 0fr 0fr 0fr 0fr 0fr 0fr;
+    grid-template-columns: 1fr 650px 1fr;
+}
+
+.grid-a {
+    grid-area: a;
+    display: grid;
+    background-image: url(/img/diskbg.png);
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    padding: 0px;
+}
+
+.grid-b {
+    grid-area: b;
+    background-color: #e0e0e0;
+    padding: 0px;
+    border-top: 7px solid #ffffff67;
+    border-radius: 20px 20px 0 0px;
+    box-shadow: 0px 10px 11px 0px #0a0b0a6e;
+}
+
+.grid-c {
+    grid-area: c;
+    background-color: #e0e0e0;
+    padding: 0px;
+    border-left: 40px solid #e0e0e0;
+    border-right: 40px solid #e0e0e0;
+    border-radius: 10px 10px 0px 0px;
+    border-radius: inherit;
+    box-shadow: 0px 10px 11px 0px #0a0b0a6e;
+    grid-template-rows: 0fr 0fr 0fr 0fr;
+    display: grid;
+}
+
+.grid-d {
+    grid-area: d;
+    background-color: #e0e0e0;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-left: 13px solid #e0e0e0;
+    border-right: 13px solid #e0e0e0;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    box-shadow: 0px 10px 11px 0px #0a0b0a6e;
+}
+
+.grid-e {
+    grid-area: e;
+    background-color: #c0c0c0;
+    padding-left: 0px;
+    border-left: 13px solid #fffdfd;
+    border-right: 13px solid #fffdfd;
+}
+
+.grid-g {
+    grid-area: g;
+    background-color: #e0e0e0;
+    padding-left: 0px;
+    border-bottom: 13px solid #e0e0e0;
+    border-radius: 0px 0 20px 20px;
+    border-left: 13px solid #e0e0e0;
+    border-right: 13px solid #e0e0e0;
+    /* background: linear-gradient(185deg, #9b9899 0%, #eae8e4 70%, #fffdf8 100%); */
+    /* display: flex; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 10px 11px 0px #0a0b0a6e;
+}
+
+.eightbit-black {
+    width: 80px;
+    height: 20px;
+    background: linear-gradient(to bottom, #ffffff 0%, #8e8e8e 100%);
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    padding: 0px;
+    font-family: "Press Start 2P", cursive;
+    text-decoration: none;
+    color: #49fd2f;
+    box-shadow: inset 0px 4px 0px 0px rgba(255, 255, 255, 0.2), 0 6px 9px 0 rgba(0, 0, 0, 0.8), inset 0 0px 3px 0px rgba(0, 0, 0, 0.5);
+    z-index: 4;
+    border: 0;
+    border-radius: 20px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.eightbit-black:active {
+    box-shadow: 0 6px 4px -2px rgba(0, 0, 0, 0.8), inset 0 2px 6px -2px rgba(255, 255, 255, 0.8);
+}
+
+.eightbit-black:hover,
+.eightbit-black:focus {
+    border: 1px solid #ffffff;
+}
+
+#mensagem {
+    color: #1eff00;
+    font-family: "Press Start 2P";
+    font-size: 12px;
+}
+
+.digitado::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.subg1 {
+    border-radius: 20px 20px 0 0;
+    background-color: #0b0d0ae0;
+    border-top: 2px solid #f8f8f8b0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* box-shadow: 0px 7px 5px 0px #000000; */
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.subg2 {
+    background-color: #1b2419e0;
+    border-left: 17px solid #20211f;
+    border-right: 17px solid #20211f;
+}
+
+.subg3 {
+    background-color: #1b2419e0;
+    padding: 10px;
+    border-radius: 0 0 20px 20px;
+    border-bottom: 38px solid #20211f;
+    border-right: 17px solid #20211f;
+    border-left: 17px solid #20211f;
+}
+
+.subg4 {
+    background-color: #0b0d0ae0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 7px 5px 0px #000000;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.btext {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
+.btout {
+    background: linear-gradient(185deg, #9b9899 0%, #eae8e4 70%, #fffdf8 100%);
+    height: 34px;
+    width: 100px;
+    padding: 6px;
+    border-radius: 20px;
+}
+
+.subc-main {
+    background-color: #445f40;
+    padding: 0px;
+    border-radius: 23px 23px 23px 23px;
+    box-shadow: inset 0px 8px 6px 4px #040303b3;
+    grid-template-rows: 0fr 0fr 0fr 0fr 0fr 0fr;
+    display: grid;
+    background: linear-gradient(185deg, #9b9899 0%, #eae8e4 70%, #fffdf8 100%);
+}
+
+.plinks {
+    position: relative;
+    z-index: 10;
+    font-size: 15px;
+    /* text-shadow: 0px 2px 2px #ffffff; */
+    color: #3cfb4c;
+    padding: 0;
+    margin: 0;
+}
+
+.ptitle {
+    height: 28px;
+    background: #eae8e4;
+    border-radius: 16px;
+    color: #f7f5f1;
+    font-size: 18px;
+    font-family: arial;
+    font-weight: normal;
+    line-height: 24px;
+    box-shadow: inset 0 2px 6px -2px rgba(0, 0, 0, 0.5), 0 2px 4px 0 rgb(255, 255, 255);
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 10px;
+    margin: 10px 30% 0 30%;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.pbalance {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+    margin-bottom: 0px;
+    position: relative;
+    z-index: 10;
+    color: #03ff25;
+    border-bottom: dotted;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btnrock {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(to bottom, #dddcdc 0%, #b1b1b1 100%);
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    padding: 0px;
+    font-family: "Press Start 2P", cursive;
+    text-decoration: none;
+    color: #49fd2f;
+    box-shadow: inset 0px 4px 2px 0px rgb(255 255 255), 0 6px 9px 0 rgba(0, 0, 0, 0.8), inset 0 0px 3px 0px rgba(0, 0, 0, 0.5);
+    z-index: 4;
+    border-top: 0px solid #ebebeb;
+    border-radius: 50%;
+    margin: 0;
+    border-bottom: 1px solid #7d7d7d;
+    border-left: 0;
+    border-right: 0;
+    cursor: pointer;
+}
+
+.btnrock:active {
+    box-shadow: 0 6px 4px -2px rgba(0, 0, 0, 0.8), inset 0 2px 6px -2px rgba(255, 255, 255, 0.8);
+}
+
+.btnrock:hover {
+    border: 1px solid #636363;
+}
+
+.playbtns {
+    background: linear-gradient(185deg, #c2c2c2 0%, #eae8e4 70%, #fffdf8 100%);
+    height: 100px;
+    width: 280px;
+    padding: 13px;
+    border-radius: 96px;
+    /* margin: 15px 20% 0px 20%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#btn-historico {
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    background: 0;
+    border: 0;
+    font-size: 12px;
+    color: #3cff00;
+    font-family: 'Press Start 2P';
+    cursor: pointer;
+}
+
+.arblogo {
+    height: 50px;
+    width: 50px;
+    filter: invert(0.6);
+    filter: drop-shadow(3px 5px 5px #4f4f4f);
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<head>
+    <meta charset="UTF-8">
+    <title>JKP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Carattere&family=Grand+Hotel&family=Pacifico&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Carattere&family=Grand+Hotel&family=Maven+Pro:wght@400..900&family=Pacifico&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Google+Sans+Code:ital,wght@0,600;1,600&family=Maven+Pro:wght@400..900&family=Mochiy+Pop+One&family=Nabla&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Maven+Pro:wght@400..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="garbsep.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+    <script src="gamearb.js"></script>
+    <script src="buyarb.js"></script>
+
+    <style>
+        .modal,
+        .modalb {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content,
+        .modalb-content {
+            background-color: #fefefe;
+            border: 1px solid #000000;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        }
+        
+        .close,
+        .closeb {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<body>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div class="grid-container">
+        <div class="grid-a">
+            <h1 style="text-shadow: 0 3px 0 #03ff25, 0 8px 0 #e3dc09; 
+            z-index: 3;
+            font-family: 'Mochiy Pop One', sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            text-shadow: 0 3px 0 #03ff25, 0 8px 0 #e3dc09; z-index: 3;">
+                じゃんけんぽん
+            </h1>
+        </div>
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <div class="grid-b">
+            <p class="ptitle">Junkandpoor 1.0</p>
+            <hr style="box-shadow: 0px 1px 1px 0px #ffffff;">
+        </div>
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <div class="grid-c">
+            <div class="subc-main">
+                <!-- ****************** -->
+                <div class="subg1">
+                    <button onclick="conectar()" class="wcnct">Wallet Connect</button>
+                </div>
+                <!-- ****************** -->
+                <div class="subg4">
+                    <p class="plinks">
+                        Sepolia [
+                        <a href="https://cloud.google.com/application/web3/faucet/ethereum/sepolia" target="_blank" rel="noopener noreferrer">
+                            Faucet 1
+                        </a><a href="https://sepolia-faucet.pk910.de/" target="_blank" rel="noopener noreferrer">
+                            Faucet 2
+                        </a> <a href="https://www.alchemy.com/faucets/ethereum-sepolia" target="_blank" rel="noopener noreferrer">
+                            Faucet 3
+                        </a>] <a href="https://app.uniswap.org/explore/tokens/ethereum_sepolia/0x5dded6d293111fd9967ed2835ce905b1eb2c023e" target="_blank" rel="noopener noreferrer">
+                            Unisawap
+                        </a>
+                        <button id="howToPlayBtn" style="background: 0;border: 0;font-size: 15px; margin: 0;">How to Play</button>
+                        <button id="howToArbBtn" style="background: 0;border: 0;font-size: 15px; margin: 0;">Bridge to Arb</button>
+                    </p>
+                </div>
+                <!-- ****************** -->
+                <div class="subg2">
+                    <p class="pbalance"><span id="conta">Disconnected</span><br><span id="saldo-eth"></span> <span id="saldo-token"></span></p>
+                    <span id="saldo-eth"></span> <span id="saldo-token"></span>
+                </div>
+                <!-- ****************** -->
+                <div class="subg2">
+                    <button id="btn-historico" onclick="alternarTabela()">
+                        Played Games History
+                    </button>
+                    <div id="historico-container" style="display: none;">
+                        <table id="historico"></table>
+                    </div>
+                </div>
+                <!-- ****************** -->
+                <div class="subg2">
+                    <!-- <p id="estagio" style=" font-family: 'Press Start 2P', cursive; font-size: 11px; color: #2afd3d;" class="plinks"></p> -->
+                    <div id="mensagem" class="digitado"></div>
+                </div>
+                <!-- ****************** -->
+                <div class="subg3">
+                    <!-- <div id="t" style="z-index: 4;position: relative;"><img src="img/walk.gif" alt=""></div> -->
+                    <div id="t" style="z-index: 4;position: relative;"><img id="walker" src="img/walk.gif" alt=""></div>
+                    <div id="resultado" style="z-index: 4;position: relative;font-family: 'Press Start 2P', 
+                    cursive;font-size: 25px; margin-bottom: 0px;margin-top: 5px;
+                    text-shadow: 0 3px 0 #03ff25, 0 8px 0 #e3dc09;">
+                    </div>
+                    <p id="tx-hash" style="font-family: 'Press Start 2P' , cursive; font-size: 12px; margin-bottom: 0px; z-index: 5; color: #2afd3d"></p>
+                    <p id="estagio" style="font-family: 'Press Start 2P', cursive;font-size: 11px;color: #2afd3d;font-weight: 600;line-height: 16px; padding-top: 10px;" class="plinks"></p>
+                </div>
+            </div>
+        </div>
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <div class="grid-d">
+            <div>
+                <p class="btext">Take $ZKP</p>
+                <div class="btout">
+                    <button onclick="comprarToken()" class="eightbit-black"></button>
+                </div>
+            </div>
+            <div class="playbtns">
+                <button onclick="jogar(0)" class="btnrock">
+                    <img src="img/handps.png" alt="">
+                </button>
+                <button onclick="jogar(1)" class="btnrock">
+                    <img style="mix-blend-mode: color-burn; image-rendering: pixelated;" src="img/handbp.png" alt="">
+                </button>
+                <button onclick="jogar(2)" class="btnrock">
+                    <img src="img/handpt.png" alt="">
+                </button>
+            </div>
+            <div>
+                <p class="btext">Bet</p>
+                <div class="btout">
+                    <button onclick="pagar()" class="eightbit-black"></button>
+                </div>
+                <!-- <button onclick="sacar()" class="eightbit-black">|Prize|</button> -->
+            </div>
+        </div>
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <div class="grid-g">
+            <hr style="box-shadow: 0px 1px 1px 0px #ffffff;">
+            <p class="ptitle"></p>
+
+        </div>
+        <div id="howToPlayModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 style="text-align: center;">How to Play</h2>
+                <ol style="padding-right: 30px;">
+                    <li>Receive ETH on the Sepolia network by visiting the links.</li>
+                    <hr>
+                    <li>Connect your wallet to view your balance.</li>
+                    <hr>
+                    <li>Get 1 JKP using the button or via the Uniswap link.</li>
+                    <hr>
+                    <li>
+                        Place your 1 JKP bet — first, you need to approve the token transfer. Wait for the transaction to complete. Then, a second request will appear in your wallet. Confirm the bet payment. Once the transaction is finalized, you can make your move.
+                    </li>
+                    <hr>
+                    <li>
+                        Choose your move and wait for the result. If you win, another transaction will be triggered and the prize will be sent to your wallet.
+                    </li>
+                    <hr>
+                    <li>Your tokens can be swapped for ETH (Sepolia Testnet) or vice versa via Uniswap.</li>
+                    <hr>
+                    <li>
+                        Your game history can be checked after connecting your wallet by clicking on "Played Games History".
+                    </li>
+                    <hr>
+                    <li>
+                        Your progress is tracked by the number of victories. Upon reaching 10 wins, the player becomes eligible to mint the Early Adopter NFT. Upon reaching 30 wins, they become eligible to mint the OG Hands NFT.
+                    </li>
+                    <hr>
+                    <li>Have fun!</li>
+                </ol>
+            </div>
+        </div>
+        <hr>
+        <div id="howToArbModal" class="modalb">
+            <div class="modalb-content">
+                <spanb class="closeb">&times;</spanb>
+                <h2 style="text-align: center;">How to Play</h2>
+                <ol style="padding-right: 30px;">
+                    <li>Go to <a href="https://cloud.google.com/application/web3/faucet/ethereum/sepolia" target="_blank" rel="noopener noreferrer">
+                    Arbitrum Sepolia Bridge
+                  </a> or to <a href="https://testnets.relay.link/bridge" target="_blank" rel="noopener noreferrer"> Relay</a></li>
+                    <hr>
+                    <li>Connect your wallet to view your balance.</li>
+                    <hr>
+                    <li>Get 1 JKP using the button or via the Uniswap link.</li>
+                    <hr>
+                    <li>
+                        Place your 1 JKP bet — first, you need to approve the token transfer. Wait for the transaction to complete. Then, a second request will appear in your wallet. Confirm the bet payment. Once the transaction is finalized, you can make your move.
+                    </li>
+                    <hr>
+                    <li>
+                        Choose your move and wait for the result. If you win, another transaction will be triggered and the prize will be sent to your wallet.
+                    </li>
+                    <hr>
+                    <li>Your tokens can be swapped for ETH or vice versa via Uniswap.</li>
+                    <li>
+                        Your game history can be checked after connecting your wallet by clicking on "Played Games History".
+                    </li>
+                    <hr>
+                    <li>Have fun!</li>
+                </ol>
+            </div>
+        </div>
+        <!-- <p id="tx-hash" style="font-family: 'Press Start 2P' , cursive; font-size: 12px; margin-bottom: 0px; z-index: 5;"></p> -->
+
+        <div id="resultado" style="z-index: 4;position: relative;font-family: 'Press Start 2P', 
+        cursive;font-size: 25px; margin-bottom: 0px;margin-top: 5px;
+        text-shadow: 0 3px 0 #03ff25, 0 8px 0 #e3dc09;">
+        </div>
+        <div id="duelo" style=" text-align:center;">
+            <img id="img-jogador" src="" alt="Escolha do jogador" style="height:100px; width: 100px; display: none;">
+            <br>
+            <span id="duelo-texto"></span>
+        </div>
+        <!-- <div class="layer" id="cityBack" style="background-position-y: 100%;"></div>
+    <div class="layer" id="city" style="background-position-y: 100%;"></div> -->
+
+        <script>
+            const modal = document.getElementById("howToPlayModal");
+            const btn = document.getElementById("howToPlayBtn");
+            const span = document.getElementsByClassName("close")[0];
+
+            btn.onclick = () => modal.style.display = "flex";
+            span.onclick = () => modal.style.display = "none";
+            window.onclick = (event) => {
+                if (event.target == modal) modal.style.display = "none";
+            };
+        </script>
+        <script>
+            const modalb = document.getElementById("howToArbModal");
+            const btnb = document.getElementById("howToArbBtn");
+            const spanb = document.getElementsByClassName("closeb")[0];
+
+            btnb.onclick = () => modalb.style.display = "flex";
+            spanb.onclick = () => modalb.style.display = "none";
+            window.onclick = (event) => {
+                if (event.target == modalb) modalb.style.display = "none";
+            };
+        </script>
+</body>
+
+</html>
