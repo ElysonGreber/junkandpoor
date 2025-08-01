@@ -4,7 +4,7 @@ body {
     text-align: center;
     padding: 30px;
     -webkit-font-smoothing: antialiased;
-    background-image: url(/img/Arbitrum_AllWhite_Logos_Logomark_RGB.png);
+    background-image: url(img/Arbitrum_AllWhite_Logos_Logomark_RGB.png);
     background-size: 10%;
 }
 
@@ -163,7 +163,7 @@ body {
     padding: 30px;
     font-family: "Maven Pro", sans-serif;
     text-align: center;
-    background-image: url(/img/Arbitrum_AllWhite_Logos_Logomark_RGB.png);
+    background-image: url(img/Arbitrum_AllWhite_Logos_Logomark_RGB.png);
     background-size: 8%;
     background-repeat: repeat;
     background-blend-mode: soft-light;
@@ -454,7 +454,7 @@ h3 {
 .grid-a {
     grid-area: a;
     display: grid;
-    background-image: url(/img/diskbg.png);
+    background-image: url(img/diskbg.png);
     background-size: 75%;
     background-repeat: no-repeat;
     background-position-x: center;
