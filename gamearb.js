@@ -199,10 +199,12 @@ async function conectar() {
     await exibirHistoricoJogadas();
     await exibirEstagioJogador();
     mostrarBotaoHistorico();
+    // const light = document.getElementById("lcon");
+    // light.classList.add("light-on");
     const btn = document.querySelector(".wcnct");
     btn.classList.add("wallet-connected");
     btn.innerText = "Connected";
-    digitarTexto("Hello! Take $JKP token, bet and Play!");
+    digitarTexto("Hello!");
 }
 
 //----------------------------------------------------------------------------------//
@@ -452,6 +454,43 @@ function digitarTexto(texto, elementoId = "mensagem", velocidade = 50) {
     digitar();
 }
 
+// async function exibirEstagioJogador() {
+//     try {
+//         const historico = await contrato.methods.verHistorico(conta).call();
+
+//         let vitorias = 0;
+
+//         historico.forEach(jogada => {
+//             if (parseInt(jogada.resultado) === 2) {
+//                 vitorias++;
+//             }
+//         });
+
+//         let estagio = "Nenhum progresso ainda";
+//         let walk = "";
+
+//         if (vitorias >= 10) {
+//             estagio = "Boss";
+//             walk = "X - X - X - - - - X -> NEXT";
+//         } else if (vitorias >= 5) {
+//             estagio = "Stage 3";
+//             walk = "X - X - X - - - - BOSS";
+//         } else if (vitorias >= 3) {
+//             estagio = "Stage 2";
+//             walk = "X - X - 3 - - - - BOSS";
+//         } else if (vitorias >= 1) {
+//             estagio = "Stage 1";
+//             walk = "X - 2 - 3 - - - - BOSS";
+//         }
+
+//         const estagioElemento = document.getElementById("estagio");
+//         estagioElemento.innerHTML = `Progress: ${estagio} (${vitorias} Victorys)<br><p class="lvl"> ${walk}</p>`;
+
+//     } catch (err) {
+//         console.error("Erro ao calcular estágio:", err);
+//     }
+// }
+
 async function exibirEstagioJogador() {
     try {
         const historico = await contrato.methods.verHistorico(conta).call();
@@ -466,23 +505,28 @@ async function exibirEstagioJogador() {
 
         let estagio = "Nenhum progresso ainda";
         let walk = "";
-
+        let lvl = 0;
+        let dots = " - - - ";
         if (vitorias >= 10) {
-            estagio = "Boss";
-            walk = "X - X - X - - - - X -> NEXT";
+            lvl = 4;
+            estagio = "lvl - " + lvl;
+            walk = '<div class="lvl"><p class="green"> 01 </p> ' + dots + '<p class="green"> 02 </p> ' + dots + '<p class="green"> 03 </p> ' + dots + '<p class="green"> 04 </p>' + dots + '<p class="blue"> 05 </p> </div>';
         } else if (vitorias >= 5) {
-            estagio = "Stage 3";
-            walk = "X - X - X - - - - BOSS";
+            lvl = 3;
+            estagio = "lvl - " + lvl;
+            walk = '<div class="lvl"><p class="green"> 01 </p> ' + dots + '<p class="green"> 02 </p> ' + dots + '<p class="green"> 03 </p> ' + dots + '<p class="blue"> 04 </p>' + dots + '<p class="blue"> 05 </p> </div>';
         } else if (vitorias >= 3) {
-            estagio = "Stage 2";
-            walk = "X - X - 3 - - - - BOSS";
+            lvl = 2;
+            estagio = "lvl - " + lvl;
+            walk = '<div class="lvl"><p class="green"> 01 </p> ' + dots + '<p class="green"> 02 </p> ' + dots + '<p class="blue"> 03 </p> ' + dots + '<p class="blue"> 04 </p>' + dots + '<p class="blue"> 05 </p> </div>';
         } else if (vitorias >= 1) {
-            estagio = "Stage 1";
-            walk = "X - 2 - 3 - - - - BOSS";
+            lvl = 1;
+            estagio = "lvl - " + lvl;
+            walk = '<div class="lvl"><p class="green"> 01 </p> ' + dots + '<p class="blue"> 02 </p> ' + dots + '<p class="blue"> 03 </p> ' + dots + '<p class="blue"> 04 </p> ' + dots + '<p class="blue"> 05 </p> </div>';
         }
 
         const estagioElemento = document.getElementById("estagio");
-        estagioElemento.innerHTML = `Progress: ${estagio} (${vitorias} Victorys)<br>${walk}`;
+        estagioElemento.innerHTML = `<p class="stage">Progress: ${estagio} (${vitorias} Victorys)</p>${walk}`;
 
     } catch (err) {
         console.error("Erro ao calcular estágio:", err);
