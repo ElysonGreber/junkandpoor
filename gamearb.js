@@ -111,35 +111,31 @@ const abiContrato = [{
 //----------------------------------------------------------------------//
 const abiERC20 = [{
         constant: false,
-        inputs: [{
-                name: "spender",
-                type: "address",
-            },
-            {
-                name: "value",
-                type: "uint256",
-            },
+        inputs: [
+            { name: "spender", type: "address" },
+            { name: "value", type: "uint256" }
         ],
         name: "approve",
-        outputs: [{
-            name: "",
-            type: "bool",
-        }, ],
-        type: "function",
+        outputs: [{ name: "", type: "bool" }],
+        type: "function"
     },
     {
         constant: true,
-        inputs: [{
-            name: "owner",
-            type: "address",
-        }, ],
+        inputs: [{ name: "owner", type: "address" }],
         name: "balanceOf",
-        outputs: [{
-            name: "",
-            type: "uint256",
-        }, ],
-        type: "function",
+        outputs: [{ name: "", type: "uint256" }],
+        type: "function"
     },
+    {
+        constant: true,
+        inputs: [
+            { name: "owner", type: "address" },
+            { name: "spender", type: "address" }
+        ],
+        name: "allowance",
+        outputs: [{ name: "", type: "uint256" }],
+        type: "function"
+    }
 ];
 //----------------------------------------------------------------------//
 let web3, contrato, token, conta;
@@ -209,12 +205,33 @@ async function conectar() {
 
 //----------------------------------------------------------------------------------//
 
+// async function pagar() {
+//     const valor = web3.utils.toWei("1", "ether");
+//     try {
+//         digitarTexto("Approve in your wallet...");
+//         await token.methods.approve(CONTRACT_ADDRESS, valor).send({ from: conta });
+
+//         await contrato.methods.pagarParaJogar().send({ from: conta });
+
+//         digitarTexto("Payment completed. You can now play!");
+//     } catch (e) {
+//         console.error(e);
+//         digitarTexto("Payment failed. Try again.");
+//     }
+// }
+
 async function pagar() {
     const valor = web3.utils.toWei("1", "ether");
-    try {
-        digitarTexto("Approve in your wallet...");
-        await token.methods.approve(CONTRACT_ADDRESS, valor).send({ from: conta });
 
+    try {
+        const allowance = await token.methods.allowance(conta, CONTRACT_ADDRESS).call();
+
+        if (BigInt(allowance) < BigInt(valor)) {
+            digitarTexto("Approve in your wallet...");
+            await token.methods.approve(CONTRACT_ADDRESS, valor).send({ from: conta });
+        }
+
+        digitarTexto("Processing payment...");
         await contrato.methods.pagarParaJogar().send({ from: conta });
 
         digitarTexto("Payment completed. You can now play!");
@@ -232,7 +249,7 @@ async function jogar(escolha) {
     const imgJogador = document.getElementById("img-jogador");
     const hashEl = document.getElementById("tx-hash");
     const walker = document.getElementById("walker");
-
+    digitarTexto("Processing");
     const imagens = ["img/hstg.png", "img/hpg.png", "img/hsg.png"];
 
     try {
@@ -503,11 +520,15 @@ async function exibirEstagioJogador() {
             }
         });
 
-        let estagio = "Nenhum progresso ainda";
+        let estagio = "0";
         let walk = "";
         let lvl = 0;
         let dots = " - - - ";
-        if (vitorias >= 10) {
+        if (vitorias >= 20) {
+            lvl = 4;
+            estagio = "lvl - " + lvl;
+            walk = '<div class="lvl"><p class="green"> 01 </p> ' + dots + '<p class="green"> 02 </p> ' + dots + '<p class="green"> 03 </p> ' + dots + '<p class="green"> 04 </p>' + dots + '<p class="green"> 05 </p> </div>';
+        } else if (vitorias >= 10) {
             lvl = 4;
             estagio = "lvl - " + lvl;
             walk = '<div class="lvl"><p class="green"> 01 </p> ' + dots + '<p class="green"> 02 </p> ' + dots + '<p class="green"> 03 </p> ' + dots + '<p class="green"> 04 </p>' + dots + '<p class="blue"> 05 </p> </div>';
@@ -523,6 +544,10 @@ async function exibirEstagioJogador() {
             lvl = 1;
             estagio = "lvl - " + lvl;
             walk = '<div class="lvl"><p class="green"> 01 </p> ' + dots + '<p class="blue"> 02 </p> ' + dots + '<p class="blue"> 03 </p> ' + dots + '<p class="blue"> 04 </p> ' + dots + '<p class="blue"> 05 </p> </div>';
+        } else if (vitorias = 0) {
+            lvl = 0;
+            estagio = "lvl - " + lvl;
+            walk = '<div class="lvl"><p class="blue"> 01 </p> ' + dots + '<p class="blue"> 02 </p> ' + dots + '<p class="blue"> 03 </p> ' + dots + '<p class="blue"> 04 </p> ' + dots + '<p class="blue"> 05 </p> </div>';
         }
 
         const estagioElemento = document.getElementById("estagio");
